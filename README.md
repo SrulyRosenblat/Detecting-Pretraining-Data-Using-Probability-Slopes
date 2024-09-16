@@ -1,3 +1,6 @@
+![AI Disclusures Logo](https://www.ssrc.org/wp-content/themes/ssrcorg-child/assets/images/aicr_logo2.png)
+
+
 # Perplexity Slope Method
 ***Created as part of the AI Disclosures Project at the Social Science Research Council***
 
@@ -44,6 +47,7 @@ Once the normalization is applied, the slope of the line fitted to the sequence'
 
 
 
+![image visualizing results](results.png)
 
 
 
