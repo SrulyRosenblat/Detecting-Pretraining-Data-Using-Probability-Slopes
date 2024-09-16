@@ -35,6 +35,14 @@ Once the normalization is applied, the slope of the line fitted to the sequence'
 
 ## Preliminary Results
 *all results tested on the mamba 1.4b*
+| Method                           | O'Reilly dataset (Technical books)      | BookTection dataset (fiction)   | WikiMia (Wiki articles, 128 word subset) | ArXiv dataset (academic papers) |
+|-----------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|---------------------------------|
+| Slope Detection (1-gram mean adjusted) | 0.617 (0.572, 0.656)               | 0.789 (0.754, 0.822)           | 0.588 (0.517, 0.655)                    | 0.480 (0.434, 0.526)            |
+| Slope Detection (best case)       | 0.631 (0.591, 0.671)                   | 0.824 (0.790, 0.855)           | 0.599 (0.521, 0.674)                    | 0.572 (0.528, 0.615)            |
+| Mink++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
+
+
+
 
 
 
