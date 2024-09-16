@@ -40,13 +40,13 @@ Once the normalization is applied, the slope of the line fitted to the sequence'
 
 We ran tests on the model on the folowing datasets:
 
-ArXivTection:
+-  [ArXivTection:](https://huggingface.co/datasets/avduarte333/arXivTection/viewer?row=0)  A dataset containing samples of 50 research papers, half published before 2022 (the presumed year the model you are testing is trained) and half after.
 
-BookTection:
+-  [BookTection:](https://huggingface.co/datasets/avduarte333/BookTection)  A dataset containing samples of 50 books, half published before 2022 (the presumed year the model you are testing is trained) and half after.
 
-WikiMia:
+-   [WikiMia 128 word subset:](https://huggingface.co/datasets/swj0419/WikiMIA/viewer/default/WikiMIA_length128)  A dataset containing 256 snippets of Wikipedia, rougly half published before 2022 and half after.
 
-Internal Oreily Dataset:
+-  Internal Oreily Dataset:  A internal dataset containing snippets from books published by O'Reilly, the tested sample contained 701 books of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
 
 ## Preliminary Results
 *all results tested on the mamba 1.4b*
@@ -69,10 +69,9 @@ The reasons behind the wide disparity in results may be due to how frequently th
 | Mink++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
 
 
+## Notes on results
 
-
-
-
-
+- At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
+- 
 
 
