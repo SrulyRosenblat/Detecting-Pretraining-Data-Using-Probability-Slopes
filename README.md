@@ -46,7 +46,7 @@ We ran tests on the model on the folowing datasets:
 
 -   [WikiMia 128 word subset:](https://huggingface.co/datasets/swj0419/WikiMIA/viewer/default/WikiMIA_length128)  A dataset containing 256 snippets of Wikipedia, rougly half published before 2022 and half after.
 
--  Internal Oreily Dataset:  A internal dataset containing snippets from books published by O'Reilly, the tested sample contained 701 books of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
+-  Internal O'Reilly Dataset:  A internal dataset containing snippets from books published by O'Reilly, the tested sample contained 701 books of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
 
 ## Preliminary Results
 *all results tested on the mamba 1.4b*
