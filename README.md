@@ -14,7 +14,7 @@ When an LLM encounters a sequence it has seen in its training data, its "confide
 
 ## Methodology
 
-The core of our method is measuring the change in probabilities (or sureness) as the model generates text. However, simply analyzing the probabilities is insufficient, as some tokens are easier to predict regardless of context (e.g., punctuation or common words). To account for this, we employ various normalization techniques. Below is a step-by-step breakdown of our method:
+The core of our method is measuring the change in probabilities (or sureness) as the model generates text. However, simply analyzing the probabilities is insufficient, as some tokens are easier to predict regardless of context (e.g., punctuation or common words). To account for this, we employ various normalization techniques.
 
 ### 1. Fitting a Line to Token Probabilities
 
@@ -32,9 +32,9 @@ We introduce an **N-gram Normalization** technique to remove the influence of pa
 
 Another method involves normalizing the slope by applying the **mean** and **z-score** to the token probabilities. After calculating the slope using either raw probabilities or N-gram adjusted probabilities, we compute the mean and standard deviation of the same probabilities. These statistics are then used to normalize the slope, accounting for outliers or irregularities in the data.
 
-### 3. Measuring and Analyzing the Slope
+### 3. Analyzing the Slope
 
-Once the normalization is applied, the slope of the line fitted to the sequence's probabilities provides a measure of increasing confidence. If the slope more positive and steeper than for unknown sequences, it can be an indicator that the model has seen the text before.
+After normilization we use the calculated slopes to attempt to seperate the in dataset samples from the out of dataset samples. The standerd way to do this is by assuming that a subset of data before the model was released was in the dataset, while assuming anything published after the models training date is out of dataset.
 
 ## Datasets
 
