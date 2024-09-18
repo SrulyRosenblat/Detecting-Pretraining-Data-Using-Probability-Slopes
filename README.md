@@ -69,7 +69,19 @@ The reasons behind the wide disparity in results may be due to how frequently th
 | Slope Detection (best case)       | 0.631 (0.591, 0.671)                   | 0.824 (0.790, 0.855)           | 0.599 (0.521, 0.674)                    | 0.572 (0.528, 0.615)            |
 | Mink++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
 
+### Notes on Results
+- At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
+- We didnt yet have a chance to test all methods, specificly the DE-COP method looks very promising but requires a lot of compute.
+
+  
 ## Alternate Methods
+### DE-COP
+[![arXiv](https://img.shields.io/badge/arXiv-2402.09910-b31b1b.svg?)](https://arxiv.org/pdf/2402.09910)
+
+This attack utilizes the text the models generate instead of the probabilities in order to detect whether a model is trained on data. It quizzes the model between 4 choices (3 of which are paraphrased) to see if the model could consistently choose the correct one. It has been shown to beat most other methods on their dataset; however, it was not tested on Wikipedia like MinK%++, so there may still be areas where it underperforms. More tests need to be done.
+
+> We propose DE-COP, a method to determine whether a piece of copyrighted content was included in training. DE-COP’s core approach is to probe an LLM with multiple-choice questions, whose options include both verbatim text and their paraphrases. We construct BookTection, a benchmark with excerpts from 165 books published prior and subsequent to a model’s training cutoff, along with their paraphrases. Our experiments show that DE-COP surpasses the prior best method by 9.6% in detection performance (AUC) on models with logits available. Moreover, DE-COP also achieves an average accuracy of 72% for detecting suspect books on fully black-box models where prior methods give approximately 4% accuracy.
+> 
 ### MinK%++
 [![arXiv](https://img.shields.io/badge/arXiv-2404.02936-b31b1b.svg?)](https://arxiv.org/abs/2404.02936)
 
@@ -80,13 +92,6 @@ The reasons behind the wide disparity in results may be due to how frequently th
 The Mink%++ method is currently the state of the art for dataset detection on the WikiMia dataset. It is a threshold-based approach that relies on identifying a threshold for which scores could be separated into in-dataset and out-of-dataset.
 
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based methods that require an extra reference model.
-
-### DE-COP
-[![arXiv](https://img.shields.io/badge/arXiv-2402.09910-b31b1b.svg?)](https://arxiv.org/pdf/2402.09910)
-
-This attack utilizes the text the models generate instead of the probabilities in order to detect whether a model is trained on data. It quizzes the model between 4 choices (3 of which are paraphrased) to see if the model could consistently choose the correct one. It has been shown to beat most other methods on their dataset; however, it was not tested on Wikipedia like MinK%++, so there may still be areas where it underperforms. More tests need to be done.
-
-> We propose DE-COP, a method to determine whether a piece of copyrighted content was included in training. DE-COP’s core approach is to probe an LLM with multiple-choice questions, whose options include both verbatim text and their paraphrases. We construct BookTection, a benchmark with excerpts from 165 books published prior and subsequent to a model’s training cutoff, along with their paraphrases. Our experiments show that DE-COP surpasses the prior best method by 9.6% in detection performance (AUC) on models with logits available. Moreover, DE-COP also achieves an average accuracy of 72% for detecting suspect books on fully black-box models where prior methods give approximately 4% accuracy.
 
 ### Neighbourhood Comparison
 [![PDF](https://img.shields.io/badge/PDF-ACL_2023-ff69b4.svg?)](https://aclanthology.org/2023.findings-acl.719.pdf)
@@ -109,13 +114,6 @@ This membership inference attack relies on generating alternate texts for a cert
 This paper takes a threshold-based approach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
 
 > We introduce a new detection method MIN-K% PROB based on a simple hypothesis: an unseen example is likely to contain a few outlier words with low probabilities under the LLM, while a seen example is less likely to have words with such low probabilities. MIN-K% PROB can be applied without any knowledge about the pretraining corpus or any additional training, departing from previous detection methods that require training a reference model on data that is similar to the pretraining data.
-
-## Notes on Results
-- At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
-- We didnt yet have a chance to test all methods, specificly the DE-COP method looks very promising but requires a lot of compute.
-
-##  Appendix
-### Expirements with ensemble models
 
 
 
