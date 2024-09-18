@@ -73,13 +73,20 @@ The reasons behind the wide disparity in results may be due to how frequently th
 
 ## Alternate Methods
 ### MinK%++
-<img src="minkplus.png" width="50%">
+
+<p align="center">
+  <img src="minkplus.png" width="50%">
+</p>
 
 The Mink%++ method is currently the state of the art for dataset detection. It is a threshold based aproach that relies on identifying a threshold for which scores could be seperated into in dataset and out of dataset.
 
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based method that requires an extra reference model.
 
 ### Neighbourhood Comparison
+<p align="center">
+  <img src="neighbors.png" width="50%">
+</p>
+
 This membership infrence attack, relies on generating alternate texts for a certian text and assuming that the loss for a model of a text in the models dataset, would be lower than its neigbors. The method then thresholds based on the delta between the mean of loss on a texts neighbors and the text's loss itself.
 
 > we propose and evaluate neighbourhood attacks, which compare model scores for
