@@ -51,7 +51,7 @@ We ran tests on the model on the folowing datasets:
 ## Preliminary Results
 *all results tested on the mamba 1.4b*
 
-In our early results, and when comparing our findings to the current state-of-the-art membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for difrent text types.
+In our early results, and when comparing our findings to a membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for difrent text types.
 
 <p align="center">
   <img src="results.png" alt="Image" width="50%">
@@ -77,9 +77,16 @@ The reasons behind the wide disparity in results may be due to how frequently th
   <img src="minkplus.png" width="50%">
 </p>
 
-The Mink%++ method is currently the state of the art for dataset detection on the WikiMia dataset. It is a threshold based approach that relies on identifying a threshold for which scores could be separated into in dataset and out of dataset.
+The Mink%++ method is currently the state of the art for dataset detection on the WikiMia dataset. It is a threshold-based approach that relies on identifying a threshold for which scores could be separated into in-dataset and out-of-dataset.
 
-> On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based method that requires an extra reference model.
+> On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based methods that require an extra reference model.
+
+### DE-COP
+[![arXiv](https://img.shields.io/badge/arXiv-2402.09910-b31b1b.svg?)](https://arxiv.org/pdf/2402.09910)
+
+This attack utilizes the text the models generate instead of the probabilities in order to detect whether a model is trained on data. It quizzes the model between 4 choices (3 of which are paraphrased) to see if the model could consistently choose the correct one. It has been shown to beat most other methods on their dataset; however, it was not tested on Wikipedia like MinK%++, so there may still be areas where it underperforms. More tests need to be done.
+
+> We propose DE-COP, a method to determine whether a piece of copyrighted content was included in training. DE-COP’s core approach is to probe an LLM with multiple-choice questions, whose options include both verbatim text and their paraphrases. We construct BookTection, a benchmark with excerpts from 165 books published prior and subsequent to a model’s training cutoff, along with their paraphrases. Our experiments show that DE-COP surpasses the prior best method by 9.6% in detection performance (AUC) on models with logits available. Moreover, DE-COP also achieves an average accuracy of 72% for detecting suspect books on fully black-box models where prior methods give approximately 4% accuracy.
 
 ### Neighbourhood Comparison
 [![PDF](https://img.shields.io/badge/PDF-ACL_2023-ff69b4.svg?)](https://aclanthology.org/2023.findings-acl.719.pdf)
@@ -90,7 +97,7 @@ The Mink%++ method is currently the state of the art for dataset detection on th
 
 This membership inference attack relies on generating alternate texts for a certain text and assuming that the loss for a model of a text in the model's dataset would be lower than its neighbors. The method then thresholds based on the delta between the mean of loss on a text's neighbors and the text's loss itself.
 
-> we propose and evaluate neighbourhood attacks, which compare model scores for a given sample to scores of synthetically generated neighbour texts and therefore eliminate the need for access to the training data distribution. We show that, in addition to being competitive with reference-based attacks that have perfect knowledge about the training data distribution, our attack clearly outperforms existing reference-free attacks as well as reference-based attacks with imperfect knowledge, which demonstrates the need for a reevaluation of the threat model of adversarial attacks.
+> We propose and evaluate neighbourhood attacks, which compare model scores for a given sample to scores of synthetically generated neighbour texts and therefore eliminate the need for access to the training data distribution. We show that, in addition to being competitive with reference-based attacks that have perfect knowledge about the training data distribution, our attack clearly outperforms existing reference-free attacks as well as reference-based attacks with imperfect knowledge, which demonstrates the need for a reevaluation of the threat model of adversarial attacks.
 
 ### MinK
 [![arXiv](https://img.shields.io/badge/arXiv-2310.16789-b31b1b.svg?)](https://arxiv.org/pdf/2310.16789)
@@ -102,11 +109,13 @@ This membership inference attack relies on generating alternate texts for a cert
 This paper takes a threshold-based approach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
 
 > We introduce a new detection method MIN-K% PROB based on a simple hypothesis: an unseen example is likely to contain a few outlier words with low probabilities under the LLM, while a seen example is less likely to have words with such low probabilities. MIN-K% PROB can be applied without any knowledge about the pretraining corpus or any additional training, departing from previous detection methods that require training a reference model on data that is similar to the pretraining data.
-## Expirements with ensemble models
-## Notes on Results
 
+## Notes on Results
 - At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
-- We didnt yet have a chance to test all methods
+- We didnt yet have a chance to test all methods, specificly the DE-COP method looks very promising but requires a lot of compute.
+
+##  Appendix
+### Expirements with ensemble models
 
 
 
