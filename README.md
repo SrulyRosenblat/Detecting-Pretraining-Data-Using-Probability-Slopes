@@ -51,17 +51,15 @@ We ran tests on the model on the folowing datasets:
 ## Preliminary Results
 *all results tested on the mamba 1.4b*
 
-In our early results, and when comparing our findings to the current state-of-the-art membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought, and that a ensemble approach using 2 or more methods may be warranted.
+In our early results, and when comparing our findings to the current state-of-the-art membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for difrent text types.
 
 <p align="center">
   <img src="results.png" alt="Image" width="50%">
 </p>
 
-Specifically, we found that on the BookTection dataset, we outperformed MinK++ by a wide margin, even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArxivTection dataset, MinK++ significantly outperformed our approach.
+Specifically, we found that on the BookTection dataset, we outperformed MinK%++ by a wide margin, even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArxivTection dataset, MinK++ significantly outperformed our approach.
 
 The reasons behind the wide disparity in results may be due to how frequently the tokens in the dataset change and how rare the tokens are overall. For example, the WikiMia dataset contains text from Wikipedia, which is suspected to be included in the training data of most LLMs trained after 2022. However, we do not know how many versions of that text appeared in the model’s dataset, given how frequently Wikipedia is edited. This means that our method may have a harder time detecting the slope due to there being more variations of "correct" answers. There may also be other major differences between the datasets, such as the citation style in the Arxiv dataset. More research is needed to understand why both methods’ performance varies so greatly.
-
-
 
 
 
@@ -79,7 +77,7 @@ The reasons behind the wide disparity in results may be due to how frequently th
   <img src="minkplus.png" width="50%">
 </p>
 
-The Mink%++ method is currently the state of the art for dataset detection. It is a threshold based approach that relies on identifying a threshold for which scores could be separated into in dataset and out of dataset.
+The Mink%++ method is currently the state of the art for dataset detection on the WikiMia dataset. It is a threshold based approach that relies on identifying a threshold for which scores could be separated into in dataset and out of dataset.
 
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based method that requires an extra reference model.
 
