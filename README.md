@@ -70,7 +70,7 @@ The reasons behind the wide disparity in results may be due to how frequently th
 
 ## Alternate Methods
 ### MinK++
-![image showing mink++ math](mink++.png)
+![image showing mink++ math](minkplusplus.png)
 
 ## Notes on Results
 
