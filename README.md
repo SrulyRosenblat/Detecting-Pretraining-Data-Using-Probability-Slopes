@@ -51,7 +51,7 @@ We ran tests on the model on the folowing datasets:
 ## Preliminary Results
 *all results tested on the mamba 1.4b*
 
-In our early results, and when comparing our findings to a membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for difrent text types.
+In our early results, and when comparing our findings to the membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for difrent text types.
 
 <p align="center">
   <img src="results.png" alt="Image" width="50%">
