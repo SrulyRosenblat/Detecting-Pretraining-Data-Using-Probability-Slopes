@@ -53,13 +53,16 @@ We ran tests on the model on the folowing datasets:
 
 In our early results, and when comparing our findings to the current state-of-the-art membership inference attack MinK++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought, and that a ensemble approach using 2 or more methods may be warranted.
 
+<p align="center">
+  <img src="results.png" alt="Image" width="50%">
+</p>
+
 Specifically, we found that on the BookTection dataset, we outperformed MinK++ by a wide margin, even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArxivTection dataset, MinK++ significantly outperformed our approach.
 
 The reasons behind the wide disparity in results may be due to how frequently the tokens in the dataset change and how rare the tokens are overall. For example, the WikiMia dataset contains text from Wikipedia, which is suspected to be included in the training data of most LLMs trained after 2022. However, we do not know how many versions of that text appeared in the model’s dataset, given how frequently Wikipedia is edited. This means that our method may have a harder time detecting the slope due to there being more variations of "correct" answers. There may also be other major differences between the datasets, such as the citation style in the Arxiv dataset. More research is needed to understand why both methods’ performance varies so greatly.
 
 
 
-![image visualizing results](results.png)
 
 
 | Method                           | O'Reilly dataset (Technical books)      | BookTection dataset (fiction)   | WikiMia (Wiki articles, 128 word subset) | ArXiv dataset (academic papers) |
@@ -69,12 +72,16 @@ The reasons behind the wide disparity in results may be due to how frequently th
 | Mink++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
 
 ## Alternate Methods
-### MinK++
-![image showing mink++ math](minkplusplus.png)
+### MinK%++
+<img src="minkplus.png" width="50%">
+
+The Mink%++ method is currently the state of the art for dataset detection.
 
 ## Notes on Results
 
 - At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
 - 
+
+
 
 
