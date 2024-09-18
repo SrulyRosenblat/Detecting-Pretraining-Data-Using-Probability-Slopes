@@ -68,8 +68,11 @@ The reasons behind the wide disparity in results may be due to how frequently th
 | Slope Detection (best case)       | 0.631 (0.591, 0.671)                   | 0.824 (0.790, 0.855)           | 0.599 (0.521, 0.674)                    | 0.572 (0.528, 0.615)            |
 | Mink++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
 
+## Alternate Methods
+### MinK++
+![image showing mink++ math](mink++.png)
 
-## Notes on results
+## Notes on Results
 
 - At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
 - 
