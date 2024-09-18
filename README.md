@@ -69,7 +69,7 @@ The reasons behind the wide disparity in results may be due to how frequently th
 
 ### Notes on Results
 - At this point in testing only one model was used; results may differ on bigger models, and more testing needs to be done.
-- We didn't yet have a chance to test all methods, specifically the DE-COP method looks very promising but requires a lot of compute.
+- We didn't yet have a chance to test all methods, specifically the DE-COP method looks very promising but requires a lot of compute. However, when we tested with the mistral model on booktection it was able to beat ours, it remains to be seen whether this holds across datasets.
 
 ## Alternate Methods
 ### DE-COP
