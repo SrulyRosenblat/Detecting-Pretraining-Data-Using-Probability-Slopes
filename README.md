@@ -73,6 +73,7 @@ The reasons behind the wide disparity in results may be due to how frequently th
 
 ## Alternate Methods
 ### MinK%++
+[![arXiv](https://img.shields.io/badge/arXiv-2404.02936-b31b1b.svg?)](https://arxiv.org/abs/2404.02936)
 
 <p align="center">
   <img src="minkplus.png" width="50%">
@@ -83,6 +84,7 @@ The Mink%++ method is currently the state of the art for dataset detection. It i
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based method that requires an extra reference model.
 
 ### Neighbourhood Comparison
+[Link](https://aclanthology.org/2023.findings-acl.719.pdf)
 <p align="center">
   <img src="neighbors.png" width="50%">
 </p>
