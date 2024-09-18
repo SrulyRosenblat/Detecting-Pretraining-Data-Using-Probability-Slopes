@@ -85,6 +85,7 @@ The Mink%++ method is currently the state of the art for dataset detection. It i
 
 ### Neighbourhood Comparison
 [Link](https://aclanthology.org/2023.findings-acl.719.pdf)
+
 <p align="center">
   <img src="neighbors.png" width="50%">
 </p>
@@ -92,11 +93,15 @@ The Mink%++ method is currently the state of the art for dataset detection. It i
 This membership infrence attack, relies on generating alternate texts for a certian text and assuming that the loss for a model of a text in the models dataset, would be lower than its neigbors. The method then thresholds based on the delta between the mean of loss on a texts neighbors and the text's loss itself.
 
 > we propose and evaluate neighbourhood attacks, which compare model scores for
-a given sample to scores of synthetically generated neighbour texts and therefore eliminate
+a given sample to scores of synthetically generated neighbour texts and therefore e![CleanShot 2024-09-18 at 12 12 26@2x](https://github.com/user-attachments/assets/5b168443-1cfd-43f3-958b-571ffc77a5c2)
+liminate
 the need for access to the training data distribution. We show that, in addition to being competitive with reference-based attacks that have perfect knowledge about the training data distribution, our attack clearly outperforms existing reference-free attacks as well as referencebased attacks with imperfect knowledge, which
 demonstrates the need for a reevaluation of the
 threat model of adversarial attacks.
 
+### MinK
+[]
+## Expirements with ensemble models
 ## Notes on Results
 
 - At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
