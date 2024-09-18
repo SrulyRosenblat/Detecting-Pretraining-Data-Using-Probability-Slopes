@@ -79,39 +79,36 @@ The reasons behind the wide disparity in results may be due to how frequently th
   <img src="minkplus.png" width="50%">
 </p>
 
-The Mink%++ method is currently the state of the art for dataset detection. It is a threshold based aproach that relies on identifying a threshold for which scores could be seperated into in dataset and out of dataset.
+The Mink%++ method is currently the state of the art for dataset detection. It is a threshold based approach that relies on identifying a threshold for which scores could be separated into in dataset and out of dataset.
 
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based method that requires an extra reference model.
 
 ### Neighbourhood Comparison
-[Link](https://aclanthology.org/2023.findings-acl.719.pdf)
+[![PDF](https://img.shields.io/badge/PDF-ACL_2023-ff69b4.svg?)](https://aclanthology.org/2023.findings-acl.719.pdf)
 
 <p align="center">
   <img src="neighbors.png" width="50%">
 </p>
 
-This membership infrence attack, relies on generating alternate texts for a certian text and assuming that the loss for a model of a text in the models dataset, would be lower than its neigbors. The method then thresholds based on the delta between the mean of loss on a texts neighbors and the text's loss itself.
+This membership inference attack relies on generating alternate texts for a certain text and assuming that the loss for a model of a text in the model's dataset would be lower than its neighbors. The method then thresholds based on the delta between the mean of loss on a text's neighbors and the text's loss itself.
 
-> we propose and evaluate neighbourhood attacks, which compare model scores for
-a given sample to scores of synthetically generated neighbour texts and therefore eliminate the need for access to the training data distribution. We show that, in addition to being competitive with reference-based attacks that have perfect knowledge about the training data distribution, our attack clearly outperforms existing reference-free attacks as well as referencebased attacks with imperfect knowledge, which
-demonstrates the need for a reevaluation of the
-threat model of adversarial attacks.
+> we propose and evaluate neighbourhood attacks, which compare model scores for a given sample to scores of synthetically generated neighbour texts and therefore eliminate the need for access to the training data distribution. We show that, in addition to being competitive with reference-based attacks that have perfect knowledge about the training data distribution, our attack clearly outperforms existing reference-free attacks as well as reference-based attacks with imperfect knowledge, which demonstrates the need for a reevaluation of the threat model of adversarial attacks.
 
 ### MinK
-[Link](https://arxiv.org/pdf/2310.16789)
+[![arXiv](https://img.shields.io/badge/arXiv-2310.16789-b31b1b.svg?)](https://arxiv.org/pdf/2310.16789)
 
 <p align="center">
   <img src="mink.png" width="50%">
 </p>
 
-This paper takes a threshold based aproach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
+This paper takes a threshold-based approach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
 
 > We introduce a new detection method MIN-K% PROB based on a simple hypothesis: an unseen example is likely to contain a few outlier words with low probabilities under the LLM, while a seen example is less likely to have words with such low probabilities. MIN-K% PROB can be applied without any knowledge about the pretraining corpus or any additional training, departing from previous detection methods that require training a reference model on data that is similar to the pretraining data.
 ## Expirements with ensemble models
 ## Notes on Results
 
 - At this point in testing only one model was used, results may differ on bigger models, more testing needs to be done.
-- 
+- We didnt yet have a chance to test all methods
 
 
 
