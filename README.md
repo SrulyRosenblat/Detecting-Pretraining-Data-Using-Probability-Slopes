@@ -57,7 +57,7 @@ In our early results, and when comparing our findings to the membership inferenc
   <img src="images/results.png" alt="Image" width="50%">
 </p>
 
-Specifically, we found that on the BookTection dataset, we outperformed Min-K%++ by a wide margin, even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArXivTection dataset, Min-K%++ significantly outperformed our approach.
+Specifically, we found that on the BookTection dataset, we outperformed Min-K%++ by a wide margin (roughly 18 points), even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement of 9 points with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArXivTection dataset, Min-K%++ significantly outperformed our approach by 9 points and 16 points respectively.
 
 The reasons behind the wide disparity in results may be due to how frequently the tokens in the dataset change and how rare the tokens are overall. For example, the WikiMia dataset contains text from Wikipedia, which is suspected to be included in the training data of most LLMs trained after 2022. However, we do not know how many versions of that text appeared in the model’s dataset, given how frequently Wikipedia is edited. This means that our method may have a harder time detecting the slope due to there being more variations of "correct" answers. There may also be other major differences between the datasets, such as the citation style in the ArXiv dataset. More research is needed to understand why both methods’ performance varies so greatly.
 
@@ -68,7 +68,9 @@ The reasons behind the wide disparity in results may be due to how frequently th
 | Min-K%++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
 
 ### The De-Cop Method
+
 We didnt have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the booktection using the mistral model in order to compare our method to thiers at least on a basic level. In our test we found that thier method performed much better for mistral on the booktection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
+
 | Method | score | Portion of dataset| Dataset |
 |--------|-------|-------------------|---------|
 | Slope Detection (1-gram mean adjusted) | 0.668 ( 0.619 , 0.713 ) |random 500 item sample| Booktection |
