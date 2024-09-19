@@ -71,7 +71,8 @@ The reasons behind the wide disparity in results may be due to how frequently th
 We didnt have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the booktection using the mistral model in order to compare our method to thiers at least on a basic level. In our test we found that thier method performed much better for mistral on the booktection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
 | Method | score | Portion of dataset| Dataset |
 |--------|-------|-------------------|---------|
-| Slope Detection | 0.766 ( 0.723 , 0.809) |random 500 item sample| Booktection |
+| Slope Detection (1-gram mean adjusted) | 0.668 ( 0.619 , 0.713 ) |random 500 item sample| Booktection |
+| Slope Detection (best case)| 0.766 ( 0.723 , 0.809) |random 500 item sample| Booktection |
 | De-Cop | 0.901 (CI unknown) | Full Dataset| Booktection |
 
 
