@@ -54,7 +54,7 @@ We ran tests on the model on the following datasets:
 In our early results, and when comparing our findings to the membership inference attack Min-K%++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for different text types.
 
 <p align="center">
-  <img src="results.png" alt="Image" width="50%">
+  <img src="images/results.png" alt="Image" width="50%">
 </p>
 
 Specifically, we found that on the BookTection dataset, we outperformed Min-K%++ by a wide margin, even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArXivTection dataset, Min-K%++ significantly outperformed our approach.
@@ -97,7 +97,7 @@ This attack utilizes the text the models generate instead of the probabilities i
 [![arXiv](https://img.shields.io/badge/arXiv-2404.02936-b31b1b.svg?)](https://arxiv.org/abs/2404.02936)
 
 <p align="center">
-  <img src="minkplus.png" width="50%">
+  <img src="images/minkplus.png" width="50%">
 </p>
 
 The Min-K%++ method is currently the state of the art for dataset detection on the WikiMia dataset. It is a threshold-based approach that relies on identifying a threshold for which scores could be separated into in-dataset and out-of-dataset.
@@ -108,7 +108,7 @@ The Min-K%++ method is currently the state of the art for dataset detection on t
 [![PDF](https://img.shields.io/badge/PDF-ACL_2023-ff69b4.svg?)](https://aclanthology.org/2023.findings-acl.719.pdf)
 
 <p align="center">
-  <img src="neighbors.png" width="50%">
+  <img src="images/neighbors.png" width="50%">
 </p>
 
 This membership inference attack relies on generating alternate texts for a certain text and assuming that the loss for a model of a text in the model's dataset would be lower than its neighbors. The method then thresholds based on the delta between the mean of loss on a text's neighbors and the text's loss itself.
@@ -119,7 +119,7 @@ This membership inference attack relies on generating alternate texts for a cert
 [![arXiv](https://img.shields.io/badge/arXiv-2310.16789-b31b1b.svg?)](https://arxiv.org/pdf/2310.16789)
 
 <p align="center">
-  <img src="mink.png" width="50%">
+  <img src="images/mink.png" width="50%">
 </p>
 
 This paper takes a threshold-based approach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
