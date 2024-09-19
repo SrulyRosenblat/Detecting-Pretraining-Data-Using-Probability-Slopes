@@ -40,9 +40,9 @@ After normalization, we use the calculated slopes to attempt to separate the in-
 
 We ran tests on the model on the following datasets:
 
--  [ArXivTection:](https://huggingface.co/datasets/avduarte333/arXivTection/viewer?row=0)  A dataset containing samples of 50 research papers, half published before 2022 (the presumed year the model you are testing is trained) and half after.
+-  [ArXivTection:](https://huggingface.co/datasets/avduarte333/arXivTection/viewer?row=0) We used a subset of the ArXivTection dataset. The ArXivTection dataset contains samples of 50 research papers, half published before 2022 (the presumed year the model you are testing is trained) and half after.
 
--  [BookTection:](https://huggingface.co/datasets/avduarte333/BookTection)  A dataset containing samples of 50 books, half published before 2022 (the presumed year the model you are testing is trained) and half after.
+-  [BookTection:](https://huggingface.co/datasets/avduarte333/BookTection)  We used a subset of the BookTection dataset. The BookTection dataset contains samples of 50 books, half published before 2022 (the presumed year the model you are testing is trained) and half after.
 
 -   [WikiMia 128 word subset:](https://huggingface.co/datasets/swj0419/WikiMIA/viewer/default/WikiMIA_length128)  A dataset containing 256 snippets of Wikipedia, roughly half published before 2022 and half after.
 
