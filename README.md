@@ -83,7 +83,7 @@ Some possible confounding factors include, that we didnt yet get a chance to rer
 
 ### Notes on Results
 - At this point in testing only one model was used; results may differ on bigger models, and more testing needs to be done.
-- We didn't yet have a chance to test all methods, 
+- We didn't yet have a chance to test all methods.
 
 ## Alternate Methods
 ### DE-COP
