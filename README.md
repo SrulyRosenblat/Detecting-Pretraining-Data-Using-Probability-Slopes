@@ -100,7 +100,7 @@ This attack utilizes the text the models generate instead of the probabilities i
   <img src="images/minkplus.png" width="50%">
 </p>
 
-The Min-K%++ method is currently the state of the art for dataset detection on the WikiMia dataset. It is a threshold-based approach that relies on identifying a threshold for which scores could be separated into in-dataset and out-of-dataset.
+The Min-K%++ method is a threshold-based approach that relies on identifying a threshold for which scores could be separated into in-dataset and out-of-dataset.
 
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based methods that require an extra reference model.
 
