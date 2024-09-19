@@ -67,9 +67,22 @@ The reasons behind the wide disparity in results may be due to how frequently th
 | Slope Detection (best case)       | 0.631 (0.591, 0.671)                   | 0.824 (0.790, 0.855)           | 0.599 (0.521, 0.674)                    | 0.572 (0.528, 0.615)            |
 | Min-K%++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
 
+### The De-Cop Method
+We didnt have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the booktection using the mistral model in order to compare our method to thiers at least on a basic level. In our test we found that thier method performed much better for mistral on the booktection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
+| Method | score | Portion of dataset| Dataset |
+|--------|-------|-------------------|---------|
+| Slope Detection | 0.766 ( 0.723 , 0.809) |random 500 item sample| Booktection |
+| De-Cop | 0.901 (CI unknown) | Full Dataset| Booktection |
+
+
+Some possible confounding factors include, that we didnt yet get a chance to rerun decop on the subset we used, so its possible (although unlikely to effect to such a significant degree) that the subset of 500 we chose was harder than the dataset as a whole. We will release further tests on Decop and our method as we do them.
+
+
+
+
 ### Notes on Results
 - At this point in testing only one model was used; results may differ on bigger models, and more testing needs to be done.
-- We didn't yet have a chance to test all methods, specifically the DE-COP method looks very promising but requires a lot of compute. However, when we tested with the mistral model on booktection it was able to beat ours, it remains to be seen whether this holds across datasets.
+- We didn't yet have a chance to test all methods, 
 
 ## Alternate Methods
 ### DE-COP
