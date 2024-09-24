@@ -50,7 +50,7 @@ We run tests on Mamba 1.4b on the following datasets:
 - O'Reilly Media Book Dataset (privately obtained):  An internal dataset containing snippets from books published by O'Reilly. The tested sample contained 701 books, of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
 
 ## 5. Preliminary Results
-*All results tested on the [Mamba 1.4b](https://huggingface.co/state-spaces/mamba-1.4b) model*
+*All results tested on the [Mamba 1.4b](https://huggingface.co/state-spaces/mamba-1.4b) model, more tests have to be done*
 
 In our early results, and when comparing our findings to the membership inference attack Min-K%++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for different text types.
 
@@ -85,7 +85,7 @@ Some possible confounding factors include, that we didnt yet get a chance to rer
 
 
 ### Notes on Results
-- At this point in testing only one model was used; results may differ on bigger models, and more testing needs to be done.
+- At this point in testing only one model was used; results may differ on bigger models as indecated with the decop test, and more testing needs to be done.
 - We didn't yet have a chance to test all methods.
 
 ## Apendix: Alternate Methods
