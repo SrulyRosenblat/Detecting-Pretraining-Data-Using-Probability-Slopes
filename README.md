@@ -62,7 +62,7 @@ When testing our method on Mamba 1.4b and comparing our findings to the membersh
 </p>
 
 <p align="center" text-align="center">
-A graph depicting results for diffrent methods and datasets with confidence intervals. 
+A graph depicting results for diffrent methods and datasets with confidence intervals on Mamba 1.4b. 
 </p>
 
 Specifically, we found that on the BookTection dataset, we outperformed Min-K%++ by a wide margin (roughly 18 points), even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement of 9 points with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArXivTection dataset, Min-K%++ significantly outperformed our approach by 9 points and 16 points respectively.
