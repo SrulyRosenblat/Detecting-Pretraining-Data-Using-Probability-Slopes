@@ -1,6 +1,5 @@
 ![AI Disclosures Logo](https://www.ssrc.org/wp-content/themes/ssrcorg-child/assets/images/aicr_logo2.png)
 
-
 # Detecting Copyright Material in LLM Pre-training Data
 ***Created as part of the AI Disclosures Project at the Social Science Research Council***
 
@@ -50,9 +49,13 @@ We run tests on Mamba 1.4b on the following datasets:
 - O'Reilly Media Book Dataset (privately obtained):  An internal dataset containing snippets from books published by O'Reilly. The tested sample contained 701 books, of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
 
 ## 5. Preliminary Results
+
+Our initial results on the Mamba 1.4b model looked very promising, it beat Min-K%++ on the O'Reilly and BookTection datasets while still underperforming on the ArXiv and WikiMia datasets, however, while we didnt get a chance to extensively test larger models or the DeCop method, it seems like our method performed worse on the Mistral model than the Mamba model in the booktection dataset despite being more than 5 times the size.
+
+### 5.1 results on Mamba 1.4b and comparisons to mink++ method
 *All results tested on the [Mamba 1.4b](https://huggingface.co/state-spaces/mamba-1.4b) model, more tests have to be done*
 
-In our early results, and when comparing our findings to the membership inference attack Min-K%++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for different text types.
+When testing our method on Mamba 1.4b and comparing our findings to the membership inference attack Min-K%++, we found in our preliminary research that our method performs better on some datasets while underperforming on others. This suggests that membership inference attacks may be more dataset-specific than previously thought and that there may be merit in picking different methods for different text types.
 
 <p align="center">
   <img src="images/results.png" alt="Image" width="75%">
@@ -62,31 +65,45 @@ Specifically, we found that on the BookTection dataset, we outperformed Min-K%++
 
 The reasons behind the wide disparity in results may be due to how frequently the tokens in the dataset change and how rare the tokens are overall. For example, the WikiMia dataset contains text from Wikipedia, which is suspected to be included in the training data of most LLMs trained after 2022. However, we do not know how many versions of that text appeared in the model’s dataset, given how frequently Wikipedia is edited. This means that our method may have a harder time detecting the slope due to there being more variations of "correct" answers. There may also be other major differences between the datasets, such as the citation style in the ArXiv dataset. More research is needed to understand why both methods’ performance varies so greatly.
 
+<div align="center">
+
 | Method                           | O'Reilly dataset (Technical books)      | BookTection dataset (fiction)   | WikiMia (Wiki articles, 128 word subset) | ArXiv dataset (academic papers) |
 |-----------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|---------------------------------|
 | Slope Detection (1-gram mean adjusted) | .617 (.572, .656)               | .789 (.754, .822)           | .588 (.517, .655)                    | .480 (.434, .526)            |
 | Slope Detection (best case)       | .631 (.591, .671)                   | .824 (.790, .855)           | .599 (.521, .674)                    | .572 (.528, .615)            |
 | Min-K%++ (best case)                | .541 (.498, .584)                   | .623 (.580, .668)           | .689 (.624, .751)                    | .736 (.697, .776)            |
 
-### 5.1 The De-Cop Method
+</div>
+
+<p align="center" text-align="center">
+auroc scores for various datasets tested on our method and Min-K%++
+</p>
+
+
+### 5.2 Results on Mistral 7b and comparisons to the De-Cop Method
 
 We didnt have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the booktection using the mistral model in order to compare our method to thiers at least on a basic level. In our test we found that thier method performed much better for mistral on the booktection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
 
+<div align="center">
+  
 | Method | Auroc Score | Sample of Dataset| Dataset |
 |--------|-------|-------------------|---------|
 | Slope Detection (1-gram mean adjusted) | .668 (.619 , .713) |Random 500 item sample| Booktection |
 | Slope Detection (best case)| .766 ( .723 , .809) |Random 500 item sample| Booktection |
 | De-Cop | .901 (CI unknown) | Full dataset| Booktection |
 
+</div>
+
+<p align="center" text-align="center">
+Early results on the mistral model, the decop auroc score was taken from the decop paper, where it was tested on the full datasets. The tests for our method are on a random 500 item sample.
+</p>
+
 
 Some possible confounding factors include, that we didnt yet get a chance to rerun decop on the subset we used, so its possible (although unlikely to effect to such a significant degree) that the subset of 500 we chose was harder than the dataset as a whole. We will release further tests on Decop and our method as we do them.
 
-
-
-
-### Notes on Results
-- At this point in testing only one model was used; results may differ on bigger models as indecated with the decop test, and more testing needs to be done.
-- We didn't yet have a chance to test all methods.
+### Important Notes on Results
+- At this point in testing only one model was used (Mamba 1.4b); results may differ on bigger models as indecated with the decop test and more testing needs to be done.
+- We didn't yet have a chance to test most methods.
 
 ## Apendix: Alternate Methods
 ### DE-COP
