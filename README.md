@@ -1,6 +1,6 @@
 ![AI Disclosures Logo](https://www.ssrc.org/wp-content/themes/ssrcorg-child/assets/images/aicr_logo2.png)
 
-# Detecting Copyright Material in LLM Pre-training Data
+# Detecting Copyright Material in LLM Pre-training Data Using Probability Slopes
 ***Created as part of the AI Disclosures Project at the Social Science Research Council***
 
 ## 1.  Introduction
@@ -32,7 +32,7 @@ We introduce an **N-gram Normalization** technique to remove the influence of pa
 
 Another method involves normalizing the slope by applying the **mean** and **z-score** to the token probabilities. After calculating the slope using either raw probabilities or N-gram adjusted probabilities, we compute the mean and standard deviation of the same probabilities. These statistics are then used to normalize the slope, accounting for outliers or irregularities in the data.
 
-### 3.3 Analyzing the Effectiveness of the model
+### 3.3 Analyzing the Effectiveness of the Method
 
 After normalization, we use the calculated slopes to attempt to separate the in-dataset samples from the out-of-dataset samples. The standard way to do this is by assuming that a subset of data before the model was released was in the dataset, while assuming anything published after the model's training date is out of dataset. Using this aproach we could calculate the **auroc** score of our method, the auroc score is a measure of separability of a dataset using perticular scores.
 
