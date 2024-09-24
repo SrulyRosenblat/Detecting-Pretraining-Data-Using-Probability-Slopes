@@ -64,9 +64,9 @@ The reasons behind the wide disparity in results may be due to how frequently th
 
 | Method                           | O'Reilly dataset (Technical books)      | BookTection dataset (fiction)   | WikiMia (Wiki articles, 128 word subset) | ArXiv dataset (academic papers) |
 |-----------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|---------------------------------|
-| Slope Detection (1-gram mean adjusted) | 0.617 (0.572, 0.656)               | 0.789 (0.754, 0.822)           | 0.588 (0.517, 0.655)                    | 0.480 (0.434, 0.526)            |
-| Slope Detection (best case)       | 0.631 (0.591, 0.671)                   | 0.824 (0.790, 0.855)           | 0.599 (0.521, 0.674)                    | 0.572 (0.528, 0.615)            |
-| Min-K%++ (best case)                | 0.541 (0.498, 0.584)                   | 0.623 (0.580, 0.668)           | 0.689 (0.624, 0.751)                    | 0.736 (0.697, 0.776)            |
+| Slope Detection (1-gram mean adjusted) | .617 (.572, .656)               | .789 (.754, .822)           | .588 (.517, .655)                    | .480 (.434, .526)            |
+| Slope Detection (best case)       | .631 (.591, .671)                   | .824 (.790, .855)           | .599 (.521, .674)                    | .572 (.528, .615)            |
+| Min-K%++ (best case)                | .541 (.498, .584)                   | .623 (.580, .668)           | .689 (.624, .751)                    | .736 (.697, .776)            |
 
 ### 5.1 The De-Cop Method
 
@@ -74,9 +74,9 @@ We didnt have a chance to fully test the DE-COP method given we initially focuse
 
 | Method | Auroc Score | Sample of Dataset| Dataset |
 |--------|-------|-------------------|---------|
-| Slope Detection (1-gram mean adjusted) | 0.668 ( 0.619 , 0.713 ) |Random 500 item sample| Booktection |
-| Slope Detection (best case)| 0.766 ( 0.723 , 0.809) |Random 500 item sample| Booktection |
-| De-Cop | 0.901 (CI unknown) | Full dataset| Booktection |
+| Slope Detection (1-gram mean adjusted) | .668 (.619 , .713) |Random 500 item sample| Booktection |
+| Slope Detection (best case)| .766 ( .723 , .809) |Random 500 item sample| Booktection |
+| De-Cop | .901 (CI unknown) | Full dataset| Booktection |
 
 
 Some possible confounding factors include, that we didnt yet get a chance to rerun decop on the subset we used, so its possible (although unlikely to effect to such a significant degree) that the subset of 500 we chose was harder than the dataset as a whole. We will release further tests on Decop and our method as we do them.
