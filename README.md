@@ -72,15 +72,16 @@ The reasons behind the wide disparity in results may be due to how frequently th
 <div align="center">
 
 | Method                           | O'Reilly dataset (Technical books)      | BookTection dataset (fiction)   | WikiMia (Wiki articles, 128 word subset) | ArXiv dataset (academic papers) |
-|-----------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|---------------------------------|
-| Slope Detection (1-gram mean adjusted) | .617 (.572, .656)               | .789 (.754, .822)           | .588 (.517, .655)                    | .480 (.434, .526)            |
-| Slope Detection (best case)       | .631 (.591, .671)                   | .824 (.790, .855)           | .599 (.521, .674)                    | .572 (.528, .615)            |
-| Min-K%++ (best case)                | .541 (.498, .584)                   | .623 (.580, .668)           | .689 (.624, .751)                    | .736 (.697, .776)            |
+|----------------------------------|-----------------------------------------|--------------------------------|------------------------------------------|---------------------------------|
+| Slope Detection (1-gram mean adjusted) | .617 <sub>(.572, .656)</sub>         | .789 <sub>(.754, .822)</sub>   | .588 <sub>(.517, .655)</sub>             | .480 <sub>(.434, .526)</sub>    |
+| Slope Detection (best case)       | .631 <sub>(.591, .671)</sub>           | .824 <sub>(.790, .855)</sub>   | .599 <sub>(.521, .674)</sub>             | .572 <sub>(.528, .615)</sub>    |
+| Min-K%++ (best case)              | .541 <sub>(.498, .584)</sub>           | .623 <sub>(.580, .668)</sub>   | .689 <sub>(.624, .751)</sub>             | .736 <sub>(.697, .776)</sub>    |
 
 </div>
 
+
 <p align="center" text-align="center">
-auroc scores for various datasets tested on our method and Min-K%++
+auroc scores and confidence intervals for various datasets tested on our method and Min-K%++.
 </p>
 
 
@@ -89,12 +90,12 @@ auroc scores for various datasets tested on our method and Min-K%++
 We didnt have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the booktection using the mistral model in order to compare our method to thiers at least on a basic level. In our test we found that thier method performed much better for mistral on the booktection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
 
 <div align="center">
-  
-| Method | Auroc Score | Sample of Dataset| Dataset |
-|--------|-------|-------------------|---------|
-| Slope Detection (1-gram mean adjusted) | .668 (.619 , .713) |Random 500 item sample| Booktection |
-| Slope Detection (best case)| .766 ( .723 , .809) |Random 500 item sample| Booktection |
-| De-Cop | .901 (CI unknown) | Full dataset| Booktection |
+
+| Method                            | Auroc Score                           | Sample of Dataset       | Dataset    |
+|-----------------------------------|---------------------------------------|-------------------------|------------|
+| Slope Detection (1-gram mean adjusted) | .668 <sub>(.619, .713)</sub>         | Random 500 item sample  | Booktection|
+| Slope Detection (best case)       | .766 <sub>(.723, .809)</sub>          | Random 500 item sample  | Booktection|
+| De-Cop                            | .901 <sub>(CI unknown)</sub>          | Full dataset            | Booktection|
 
 </div>
 
