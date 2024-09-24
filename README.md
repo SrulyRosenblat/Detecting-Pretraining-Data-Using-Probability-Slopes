@@ -99,9 +99,12 @@ This attack utilizes the text the models generate instead of the probabilities i
 ### Min-K%++
 [![arXiv](https://img.shields.io/badge/arXiv-2404.02936-b31b1b.svg?)](https://arxiv.org/abs/2404.02936)
 
-<p align="center">
-  <img src="images/minkplus.png" width="50%">
-</p>
+
+
+```math
+\text{Min-K\%++}_{\text{token seq.}}(x_{{\lt}t}, x_t) = \frac{\log p(x_t | x_{{\lt}t}) - \mu_{x_{{\lt}t}}}{\sigma_{x_{{\lt}t}}}
+```
+
 
 The Min-K%++ method is a threshold-based approach that relies on identifying a threshold for which scores could be separated into in-dataset and out-of-dataset.
 
