@@ -113,9 +113,9 @@ The Min-K%++ method is a threshold-based approach that relies on identifying a t
 ### Neighborhood Comparison
 [![PDF](https://img.shields.io/badge/PDF-ACL_2023-ff69b4.svg?)](https://aclanthology.org/2023.findings-acl.719.pdf)
 
-<p align="center">
-  <img src="images/neighbors.png" width="50%">
-</p>
+```math
+A_{f_\theta}(x) = \mathbb{1} \left[ \left( \mathcal{L}(f_\theta, x) - \frac{1}{n} \sum_{i=1}^{n} \mathcal{L}(f_\theta, \tilde{x}_i) \right) < \gamma \right]
+```
 
 This membership inference attack relies on generating alternate texts for a certain text and assuming that the loss for a model of a text in the model's dataset would be lower than its neighbors. The method then thresholds based on the delta between the mean of loss on a text's neighbors and the text's loss itself.
 
@@ -124,10 +124,10 @@ This membership inference attack relies on generating alternate texts for a cert
 ### Min-K%
 [![arXiv](https://img.shields.io/badge/arXiv-2310.16789-b31b1b.svg?)](https://arxiv.org/pdf/2310.16789)
 
-<p align="center">
-  <img src="images/mink.png" width="50%">
-</p>
+```math
+\text{Min-K\% Prob}(x) = \frac{1}{E} \sum_{x_i \in \text{Min-K\%}(x)} \log p(x_i | x_1, \dots, x_{i-1}).
 
+```
 This paper takes a threshold-based approach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
 
 > We introduce a new detection method Min-K% Prob based on a simple hypothesis: an unseen example is likely to contain a few outlier words with low probabilities under the LLM, while a seen example is less likely to have words with such low probabilities. Min-K% Prob can be applied without any knowledge about the pretraining corpus or any additional training, departing from previous detection methods that require training a reference model on data that is similar to the pretraining data.
