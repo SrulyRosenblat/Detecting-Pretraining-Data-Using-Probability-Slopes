@@ -107,7 +107,7 @@ Early results on the mistral model, the decop auroc score was taken from the dec
 Some possible confounding factors include, that we didnt yet get a chance to rerun decop on the subset we used, so its possible (although unlikely to effect to such a significant degree) that the subset of 500 we chose was harder than the dataset as a whole. We will release further tests on Decop and our method as we do them.
 
 ### Important Notes on Results
-- At this point in testing only one model was extensively (Mamba 1.4b); results may differ on bigger models as indicated with the decop test and more testing needs to be done.
+- At this point in testing only one model (Mamba 1.4b) was extensively tested; results may differ on bigger models as indicated with the decop test and more testing needs to be done.
 - We didn't yet have a chance to test most methods.
 
 ## Apendix: Alternate Methods
