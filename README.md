@@ -46,7 +46,7 @@ We run tests on Mamba 1.4b on the following datasets:
 
 -   [WikiMia 128 word subset:](https://huggingface.co/datasets/swj0419/WikiMIA/viewer/default/WikiMIA_length128)  A dataset containing 256 snippets of Wikipedia, roughly half published before 2022 and half after.
 
-- O'Reilly Media Book Dataset (privately obtained):  An internal dataset containing snippets from books published by O'Reilly. The tested sample contained 701 books, of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
+- O'Reilly Media Book Dataset (privately obtained):  An internal dataset containing snippets from books published by O'Reilly. The tested sample contained 701 snippets, of which 57% were published after 2022 and 43% were published before 2022. All reprints and new editions were removed. 
 
 ## 5. Preliminary Results
 
