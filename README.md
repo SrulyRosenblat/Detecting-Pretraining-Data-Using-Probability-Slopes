@@ -34,7 +34,7 @@ Another method involves normalizing the slope by applying the **mean** and **z-s
 
 ### 3.3 Analyzing the Effectiveness of the Method
 
-After normalization, we use the calculated slopes to attempt to separate the in-dataset samples from the out-of-dataset samples. The standard way to do this is by assuming that a subset of data before the model was released was in the dataset, while assuming anything published after the model's training date is out of dataset. Using this aproach we could calculate the **auroc** score of our method, the auroc score is a measure of separability of a dataset using perticular scores.
+After normalization, we use the calculated slopes to attempt to separate the in-dataset samples from the out-of-dataset samples. The standard way to do this is by assuming that a subset of data before the model was released was in the dataset, while assuming anything published after the model's training date is out of dataset. Using this approach we could calculate the **auroc** score of our method, the auroc score is a measure of separability of a dataset using particular scores.
 
 ## 4. Datasets
 
@@ -50,7 +50,7 @@ We run tests on Mamba 1.4b on the following datasets:
 
 ## 5. Preliminary Results
 
-Our initial results on the Mamba 1.4b model looked very promising, it beat Min-K%++ on the O'Reilly and BookTection datasets while still underperforming on the ArXiv and WikiMia datasets, however, while we didnt get a chance to extensively test larger models or the DeCop method, it seems like our method performed worse on the Mistral model than the Mamba model in the booktection dataset despite being more than 5 times the size.
+Our initial results on the Mamba 1.4b model looked very promising, it beat Min-K%++ on the O'Reilly and BookTection datasets while still underperforming on the ArXiv and WikiMia datasets, however, while we didnt get a chance to extensively test larger models or the De-Cop method, it seems like our method performed worse on the Mistral model than the Mamba model in the BookTection dataset despite being more than 5 times the size.
 
 ### 5.1 results on Mamba 1.4b and comparisons to mink++ method
 *All results tested on the [Mamba 1.4b](https://huggingface.co/state-spaces/mamba-1.4b) model, more tests have to be done*
@@ -62,7 +62,7 @@ When testing our method on Mamba 1.4b and comparing our findings to the membersh
 </p>
 
 <p align="center" text-align="center">
-A graph depicting results for diffrent methods and datasets with confidence intervals on Mamba 1.4b. 
+A graph depicting results for different methods and datasets with confidence intervals on Mamba 1.4b. 
 </p>
 
 Specifically, we found that on the BookTection dataset, we outperformed Min-K%++ by a wide margin (roughly 18 points), even when limiting ourselves to just the 1-gram mean-adjusted case. We also observed a smaller but still significant improvement of 9 points with our custom O'Reilly dataset. On the other hand, in the WikiMia 128-word subset and ArXivTection dataset, Min-K%++ significantly outperformed our approach by 9 points and 16 points respectively.
@@ -81,13 +81,13 @@ The reasons behind the wide disparity in results may be due to how frequently th
 
 
 <p align="center" text-align="center">
-auroc scores and confidence intervals for various datasets tested on our method and Min-K%++.
+Auroc scores and confidence intervals for various datasets tested on our method and Min-K%++.
 </p>
 
 
 ### 5.2 Results on Mistral 7b and comparisons to the De-Cop Method
 
-We didnt have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the booktection using the mistral model in order to compare our method to thiers at least on a basic level. In our test we found that thier method performed much better for mistral on the booktection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
+We didn't have a chance to fully test the DE-COP method given we initially focused on a small non instruction tuned model however we did run one test on a small subset of the BookTection using the mistral model in order to compare our method to theirs at least on a basic level. In our test we found that their method performed much better for mistral on the BookTection dataset. We also found that weirdly the mistral model generated lower auroc scores with our method than the same method did with the much smaller mamba 1.3b model.
 
 <div align="center">
 
@@ -100,14 +100,14 @@ We didnt have a chance to fully test the DE-COP method given we initially focuse
 </div>
 
 <p align="center" text-align="center">
-Early results on the mistral model, the decop auroc score was taken from the decop paper, where it was tested on the full dataset. The tests for our method are on a random 500 item sample.
+Early results on the mistral model, the De-Cop auroc score was taken from the De-Cop paper, where it was tested on the full dataset. The tests for our method are on a random 500 item sample.
 </p>
 
 
-Some possible confounding factors include, that we didnt yet get a chance to rerun decop on the subset we used, so its possible (although unlikely to effect to such a significant degree) that the subset of 500 we chose was harder than the dataset as a whole. We will release further tests on Decop and our method as we do them.
+Some possible confounding factors include that we didn't yet get a chance to rerun De-Cop on the subset we used, so its possible (although unlikely to effect to such a significant degree) that the subset of 500 we chose was harder than the dataset as a whole. We will release further tests on De-Cop and our method as we do them.
 
 ### Important Notes on Results
-- At this point in testing only one model (Mamba 1.4b) was extensively tested; results may differ on bigger models as indicated with the decop test and more testing needs to be done.
+- At this point in testing only one model (Mamba 1.4b) was extensively tested; results may differ on bigger models as indicated with the De-Cop test and more testing needs to be done.
 - We didn't yet have a chance to test most methods.
 
 ## Apendix: Alternate Methods
@@ -153,3 +153,5 @@ This membership inference attack relies on generating alternate texts for a cert
 This paper takes a threshold-based approach to detecting dataset members. It works by highlighting the k most unlikely tokens in any text.
 
 > We introduce a new detection method Min-K% Prob based on a simple hypothesis: an unseen example is likely to contain a few outlier words with low probabilities under the LLM, while a seen example is less likely to have words with such low probabilities. Min-K% Prob can be applied without any knowledge about the pretraining corpus or any additional training, departing from previous detection methods that require training a reference model on data that is similar to the pretraining data.
+
+
