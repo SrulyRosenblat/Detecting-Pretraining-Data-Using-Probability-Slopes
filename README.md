@@ -4,7 +4,7 @@
 ***Created as part of the AI Disclosures Project at the Social Science Research Council***
 
 ## 1.  Introduction
-Large Language Models are trained on a vast corpus of data, much of which is undisclosed. The aim this project was to attempt to further reaserch on how to detect pretraining dataset in order to make LLM training more transparent to copyright holders and guard against companies using data access violations to train LLMs.
+Large Language Models are trained on a vast corpus of data, much of which is undisclosed. The aim this project was to attempt to further research on how to detect pretraining dataset in order to make LLM training more transparent to copyright holders and guard against companies using data access violations to train LLMs.
 
 
 ## 2. Theoretical Background
