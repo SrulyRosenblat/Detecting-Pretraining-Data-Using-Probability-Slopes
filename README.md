@@ -100,7 +100,7 @@ We didnt have a chance to fully test the DE-COP method given we initially focuse
 </div>
 
 <p align="center" text-align="center">
-Early results on the mistral model, the decop auroc score was taken from the decop paper, where it was tested on the full datasets. The tests for our method are on a random 500 item sample.
+Early results on the mistral model, the decop auroc score was taken from the decop paper, where it was tested on the full dataset. The tests for our method are on a random 500 item sample.
 </p>
 
 
