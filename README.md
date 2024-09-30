@@ -110,15 +110,34 @@ Some possible confounding factors include that we didn't yet get a chance to rer
 - At this point in testing only one model (Mamba 1.4b) was extensively tested; results may differ on bigger models as indicated with the De-Cop test and more testing needs to be done.
 - We didn't yet have a chance to test most methods.
 
-## Apendix: Alternate Methods
-### DE-COP
+## Apendix: 
+### Evaluating Decop on the O'Reilly Media Book Dataset
+
+<div align="center">
+
+| Method                            | AUROC Score  | Dataset                      | 
+|-----------------------------------|--------------|------------------------------|
+| Decop (debiased)                  | .654         | O'Reilly Media Book Dataset  |
+| Decop                             | .654         | O'Reilly Media Book Dataset  |
+
+</div>
+<p align="center" text-align="center">
+Decop AUROC scores on the O'Reilly Media Book Dataset.
+</p>
+
+
+We decided to evaluate the DECOP method on the GPT-4 mini model to understand the extent to which the model was trained on the dataset. We found that the method was not able to separate the books with high accuracy into suspected training data and non-training data. While some of this discrepancy could be attributed to a different dataset and a different model, it could also be the case that as models become smarter, they may become more resilient to DECOP. This increased resilience allows them to better separate real texts from paraphrased copies, even those they haven't seen before. This is potentially evident by the models' ability to distinguish between real and fake texts on the O'Reilly dataset, achieving a score of 0.537—well above the 25% expected by random chance or the 37% accuracy reported with the original ChatGPT on the BookTection dataset.
+
+
+### Alternate Methods
+#### DE-COP
 [![arXiv](https://img.shields.io/badge/arXiv-2402.09910-b31b1b.svg?)](https://arxiv.org/pdf/2402.09910)
 
 This attack utilizes the text the models generate instead of the probabilities in order to detect whether a model is trained on data. It quizzes the model between 4 choices (3 of which are paraphrased) to see if the model could consistently choose the correct one. It has been shown to beat most other methods on their dataset; however, it was not tested on Wikipedia like Min-K%++, so there may still be areas where it underperforms. More tests need to be done.
 
 > We propose DE-COP, a method to determine whether a piece of copyrighted content was included in training. DE-COP’s core approach is to probe an LLM with multiple-choice questions, whose options include both verbatim text and their paraphrases. We construct BookTection, a benchmark with excerpts from 165 books published prior and subsequent to a model’s training cutoff, along with their paraphrases. Our experiments show that DE-COP surpasses the prior best method by 9.6% in detection performance (AUC) on models with logits available. Moreover, DE-COP also achieves an average accuracy of 72% for detecting suspect books on fully black-box models where prior methods give approximately 4% accuracy.
 
-### Min-K%++
+#### Min-K%++
 [![arXiv](https://img.shields.io/badge/arXiv-2404.02936-b31b1b.svg?)](https://arxiv.org/abs/2404.02936)
 
 
@@ -132,7 +151,7 @@ The Min-K%++ method is a threshold-based approach that relies on identifying a t
 
 > On the WikiMIA benchmark, Min-K%++ outperforms the runner-up by 6.2% to 10.5% in detection AUROC averaged over five models. On the more challenging MIMIR benchmark, it consistently improves upon reference-free methods while performing on par with reference-based methods that require an extra reference model.
 
-### Neighborhood Comparison
+#### Neighborhood Comparison
 [![PDF](https://img.shields.io/badge/PDF-ACL_2023-ff69b4.svg?)](https://aclanthology.org/2023.findings-acl.719.pdf)
 
 ```math
@@ -143,7 +162,7 @@ This membership inference attack relies on generating alternate texts for a cert
 
 > We propose and evaluate neighborhood attacks, which compare model scores for a given sample to scores of synthetically generated neighbor texts and therefore eliminate the need for access to the training data distribution. We show that, in addition to being competitive with reference-based attacks that have perfect knowledge about the training data distribution, our attack clearly outperforms existing reference-free attacks as well as reference-based attacks with imperfect knowledge, which demonstrates the need for a reevaluation of the threat model of adversarial attacks.
 
-### Min-K%
+#### Min-K%
 [![arXiv](https://img.shields.io/badge/arXiv-2310.16789-b31b1b.svg?)](https://arxiv.org/pdf/2310.16789)
 
 ```math
