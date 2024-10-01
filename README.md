@@ -117,8 +117,8 @@ Some possible confounding factors include that we didn't yet get a chance to rer
 
 | Method                            | AUROC Score  | Suspected Text Identification Rate   | Baseline Identification Rate  |
 |-----------------------------------|--------------|--------------------------------------|-------------------------------|
-| Decop (debiased)                  | ____         |          .645                        |          .597                 |
-| Decop (debiased)                  | ____         |          .576                        |          .537                 |
+| Decop (debiased)                  | 0.668        |          .645                        |          .597                 |
+| Decop                             | 0.668         |          .576                        |          .537                 |
 
 </div>
 <p align="center" text-align="center">
